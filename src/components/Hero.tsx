@@ -21,7 +21,7 @@ const Hero = () => {
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full p-1 bg-gradient-to-tr from-primary via-accent to-secondary animate-gradient-xy">
               <div className="w-full h-full rounded-full border-4 border-white dark:border-slate-950 overflow-hidden bg-slate-200">
                 <img
-                  src="/profile.png"
+                  src="profile.png"
                   alt="Tristan Kyle Karamihan"
                   className="w-full h-full object-cover"
                 />
