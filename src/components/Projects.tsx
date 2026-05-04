@@ -5,7 +5,7 @@ const projects = [
   {
     title: 'CAPstoned',
     category: 'E-Commerce',
-    image: 'CAPstoned.png',
+    image: `${import.meta.env.BASE_URL}CAPstoned.png`,
     description: 'A premium, high-end headwear e-commerce website built with Next.js, Tailwind CSS, and Framer Motion.',
     tech: ['Next.js', 'TypeScript', 'Tailwind', 'Framer Motion'],
     link: '#',
@@ -14,7 +14,7 @@ const projects = [
   {
     title: 'Inventory & POS System',
     category: 'Full Stack / Business',
-    image: 'Cafestone.png',
+    image: `${import.meta.env.BASE_URL}Cafestone.png`,
     description: 'A modern POS & Inventory System for Coffee Shops, featuring real-time tracking and automated checkout.',
     tech: ['React', 'Node.js', 'SQLite', 'Tailwind'],
     link: '#',
@@ -23,7 +23,7 @@ const projects = [
   {
     title: 'StressBuster',
     category: 'Web Experience',
-    image: 'stressbuster.png',
+    image: `${import.meta.env.BASE_URL}stressbuster.png`,
     description: 'A sensory experience designed to melt away anxiety through soothing gameplay and ethereal soundscapes.',
     tech: ['HTML', 'Tailwind CSS', 'Lucide', 'AOS'],
     link: '#',
