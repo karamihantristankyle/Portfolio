@@ -70,6 +70,32 @@ const projects = [
     highlights: ['POS', 'Inventory', 'Operations'],
     gradient: 'from-rose-500 via-orange-500 to-amber-600',
   },
+  {
+    title: 'MotoPeek',
+    category: 'More Work / Customizer',
+    description: 'A motorcycle customization experience for exploring Yamaha Aerox, NMAX, and PCX variants in an interactive build flow.',
+    tech: ['JavaScript', 'Customizer', 'Motorcycles', 'Interactive UI'],
+    link: 'https://motopeek.vercel.app',
+    linkLabel: 'Live Demo',
+    github: 'https://github.com/karamihantristankyle/MotoPeek',
+    eyebrow: 'Bike customizer',
+    summary: 'Interactive motorcycle variant and style exploration.',
+    highlights: ['Aerox', 'NMAX', 'PCX'],
+    gradient: 'from-slate-700 via-blue-700 to-cyan-600',
+  },
+  {
+    title: 'stressbuster-website',
+    category: 'More Work / Product Website',
+    description: 'A promotional landing page for StressBuster, built to present the app experience, features, and download flow with polished presentation.',
+    tech: ['HTML', 'Landing Page', 'Product Marketing', 'UI Motion'],
+    link: 'https://stressbuster-website.vercel.app',
+    linkLabel: 'Live Demo',
+    github: 'https://github.com/karamihantristankyle/stressbuster-website',
+    eyebrow: 'Marketing site',
+    summary: 'Showcases the StressBuster product and download journey.',
+    highlights: ['Landing', 'Features', 'Download'],
+    gradient: 'from-pink-500 via-fuchsia-500 to-violet-700',
+  },
 ];
 
 const Projects = () => {

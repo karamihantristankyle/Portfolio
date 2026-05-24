@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type MouseEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Github, Mail } from 'lucide-react';
 import { cn } from '../lib/utils';
@@ -17,6 +17,27 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const scrollToSection = (href: string) => {
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    const navbarOffset = 96;
+    const top = target.getBoundingClientRect().top + window.scrollY - navbarOffset;
+
+    window.scrollTo({
+      top,
+      behavior: 'smooth',
+    });
+
+    window.history.replaceState(null, '', href);
+  };
+
+  const handleNavClick = (href: string) => (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    scrollToSection(href);
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,6 +79,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={handleNavClick(link.href)}
                 className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
               >
                 {link.name}
@@ -99,7 +121,7 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleNavClick(link.href)}
                   className="block px-3 py-2 text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
                 >
                   {link.name}
