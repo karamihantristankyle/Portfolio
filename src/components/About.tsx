@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { Code2, Palette, Globe, Zap } from 'lucide-react';
 
 const stats = [
-  { label: 'Years Experience', value: '3+' },
-  { label: 'Projects Completed', value: '20+' },
-  { label: 'Happy Clients', value: '15+' },
-  { label: 'Cups of Coffee', value: '∞' },
+  { label: 'Public Repos', value: '5' },
+  { label: 'Featured Projects', value: '3' },
+  { label: 'Core Stack', value: 'TS/JS' },
+  { label: 'Focus', value: 'Web + Games' },
 ];
 
 const About = () => {
@@ -21,14 +21,14 @@ const About = () => {
             className="space-y-6"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
-              Passionate about building the <br />
-              <span className="text-primary">future of the web.</span>
+              Building products across <br />
+              <span className="text-primary">web apps and game experiences.</span>
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-              I specialize in creating interactive experiences that are not only visually stunning but also highly functional. With a background in both design and development, I bridge the gap between aesthetics and performance.
+              I work across the full stack, from polished frontends to backend logic and data-driven workflows. I enjoy building products that feel intuitive, fast, and reliable for the people who use them every day.
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-              My approach is user-centric, ensuring every line of code serves a purpose and enhances the overall journey. Whether it's a complex web app or a simple landing page, I bring the same level of dedication and detail.
+              I also bring that same systems mindset into game development, where interaction, feedback, and flow matter just as much as architecture. Whether I am shipping a business tool or an experimental game concept, I aim for clarity, responsiveness, and strong UX.
             </p>
 
             <div className="grid grid-cols-2 gap-8 pt-8">
@@ -49,26 +49,26 @@ const About = () => {
           >
             <FeatureCard
               icon={<Code2 className="text-primary" />}
-              title="Development"
-              desc="Clean, scalable code using modern technologies."
+              title="Full Stack"
+              desc="End-to-end product development with frontend, backend, and data workflows."
               delay={0.2}
             />
             <FeatureCard
               icon={<Globe className="text-secondary" />}
-              title="Performance"
-              desc="Lightning fast load times and optimization."
+              title="Systems"
+              desc="Thoughtful architecture for dashboards, internal tools, and real-world apps."
               delay={0.3}
             />
             <FeatureCard
               icon={<Palette className="text-accent" />}
-              title="Design"
-              desc="Intuitive UI/UX that delights users."
+              title="Interactive UX"
+              desc="Interfaces that feel deliberate, responsive, and satisfying to use."
               delay={0.4}
             />
             <FeatureCard
               icon={<Zap className="text-yellow-500" />}
-              title="SEO"
-              desc="Ensuring your project is discoverable."
+              title="Game Dev"
+              desc="Gameplay-focused thinking applied to pacing, feedback, and engagement."
               delay={0.5}
             />
           </motion.div>

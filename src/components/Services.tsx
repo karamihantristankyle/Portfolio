@@ -1,30 +1,30 @@
 import { motion } from 'framer-motion';
-import { Layout, Server, Smartphone, Monitor } from 'lucide-react';
+import { Layout, Server, Gamepad2, Monitor } from 'lucide-react';
 
 const services = [
   {
-    title: 'Frontend Development',
+    title: 'Frontend Systems',
     icon: <Layout className="text-primary" />,
-    description: 'Building responsive, high-performance user interfaces using React, Next.js, and modern CSS frameworks.',
-    features: ['Responsive Design', 'Interactive UI', 'State Management'],
+    description: 'Building responsive, high-performance interfaces with React, TypeScript, and modern UI patterns.',
+    features: ['Responsive UI', 'Component Systems', 'Motion & Polish'],
   },
   {
     title: 'Backend Solutions',
     icon: <Server className="text-secondary" />,
-    description: 'Developing secure, scalable server-side applications and APIs with Node.js, Express, and databases.',
-    features: ['RESTful APIs', 'Database Design', 'Auth Systems'],
+    description: 'Designing APIs, app logic, and data flows for internal tools, business platforms, and product backends.',
+    features: ['REST APIs', 'Data Modeling', 'App Logic'],
   },
   {
-    title: 'Mobile Optimization',
-    icon: <Smartphone className="text-accent" />,
-    description: 'Ensuring your web application works perfectly across all mobile devices and screen sizes.',
-    features: ['PWA Ready', 'Fast Loading', 'Touch Friendly'],
+    title: 'Game Prototypes',
+    icon: <Gamepad2 className="text-accent" />,
+    description: 'Creating interactive concepts and game-like experiences with strong feedback loops and satisfying flow.',
+    features: ['Gameplay Loops', 'Interaction Design', 'Player Feedback'],
   },
   {
-    title: 'UI/UX Design',
+    title: 'Product UX',
     icon: <Monitor className="text-yellow-500" />,
-    description: 'Crafting intuitive and engaging digital experiences that put the user first.',
-    features: ['Wireframing', 'Prototyping', 'User Flows'],
+    description: 'Shaping user journeys so products feel clear, efficient, and enjoyable from first click to final action.',
+    features: ['UX Thinking', 'Usability', 'Interface Clarity'],
   },
 ];
 
@@ -34,10 +34,10 @@ const Services = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            My <span className="text-primary">Services</span>
+            What I <span className="text-primary">Build</span>
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            I offer a wide range of digital services to help businesses grow and succeed in the modern web.
+            My work sits at the intersection of full-stack product development, interactive design, and game-inspired user experience.
           </p>
         </div>
 

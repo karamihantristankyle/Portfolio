@@ -1,33 +1,48 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 
+const githubProfile = 'https://github.com/karamihantristankyle';
+const githubRepos = `${githubProfile}?tab=repositories`;
+
 const projects = [
   {
-    title: 'CAPstoned',
-    category: 'E-Commerce',
-    image: `${import.meta.env.BASE_URL}CAPstoned.png`,
-    description: 'A premium, high-end headwear e-commerce website built with Next.js, Tailwind CSS, and Framer Motion.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind', 'Framer Motion'],
-    link: '#',
-    github: '#',
-  },
-  {
-    title: 'Inventory & POS System',
-    category: 'Full Stack / Business',
-    image: `${import.meta.env.BASE_URL}Cafestone.png`,
-    description: 'A modern POS & Inventory System for Coffee Shops, featuring real-time tracking and automated checkout.',
-    tech: ['React', 'Node.js', 'SQLite', 'Tailwind'],
-    link: '#',
-    github: '#',
+    title: 'MotoTrack',
+    category: 'Featured / Full Stack',
+    description: 'A featured full-stack concept focused on tracking workflows, clean operational visibility, and product usability.',
+    tech: ['Full Stack', 'Tracking UI', 'Dashboards', 'Workflow UX'],
+    link: githubRepos,
+    linkLabel: 'Browse GitHub',
+    github: githubProfile,
+    eyebrow: 'Tracking-focused build',
+    summary: 'Built around visibility, flow, and management.',
+    highlights: ['Operations', 'Monitoring', 'Clear UX'],
+    gradient: 'from-sky-500 via-cyan-500 to-blue-700',
   },
   {
     title: 'StressBuster',
-    category: 'Web Experience',
-    image: `${import.meta.env.BASE_URL}stressbuster.png`,
-    description: 'A sensory experience designed to melt away anxiety through soothing gameplay and ethereal soundscapes.',
-    tech: ['HTML', 'Tailwind CSS', 'Lucide', 'AOS'],
-    link: '#',
-    github: '#',
+    category: 'Featured / Game Dev',
+    description: 'A sensory web experience designed to ease tension through soothing interaction, playful feedback, and a focused mood.',
+    tech: ['HTML', 'Tailwind CSS', 'Interactive Design', 'Game Feel'],
+    link: githubRepos,
+    linkLabel: 'Browse GitHub',
+    github: githubProfile,
+    eyebrow: 'Interactive experience',
+    summary: 'Game-inspired design with atmosphere and feedback.',
+    highlights: ['Mood', 'Play', 'Feedback'],
+    gradient: 'from-violet-500 via-fuchsia-500 to-indigo-700',
+  },
+  {
+    title: 'AttendanceScheduleManager',
+    category: 'Featured / Productivity',
+    description: 'A full-stack attendance and schedule manager built with React, TypeScript, Express, and Vite.',
+    tech: ['React', 'TypeScript', 'Express', 'Vite'],
+    link: 'https://github.com/karamihantristankyle/Schedule-Attendance-Manager',
+    linkLabel: 'Open Repository',
+    github: 'https://github.com/karamihantristankyle/Schedule-Attendance-Manager',
+    eyebrow: 'Business workflow app',
+    summary: 'Scheduling and attendance in one focused workflow.',
+    highlights: ['Schedules', 'Attendance', 'Admin'],
+    gradient: 'from-emerald-500 via-teal-500 to-cyan-700',
   },
 ];
 
@@ -41,14 +56,16 @@ const Projects = () => {
               Featured <span className="text-primary">Projects</span>
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
-              A selection of my recent work, showcasing my skills in full-stack development and design.
+              A curated set of work pulled from the direction of my GitHub portfolio, with my top three projects front and center.
             </p>
           </div>
           <a
-            href="#"
+            href={githubRepos}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
           >
-            View All Projects
+            View All On GitHub
             <ArrowRight size={20} />
           </a>
         </div>
@@ -63,26 +80,28 @@ const Projects = () => {
               viewport={{ once: true }}
               className="group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all"
             >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-auto object-top transition-transform duration-[3000ms] ease-in-out group-hover:-translate-y-[calc(100%-256px)]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6 pointer-events-none">
-                  <div className="flex gap-4 pointer-events-auto">
-                    <a
-                      href={project.link}
-                      className="p-3 bg-white text-slate-900 rounded-full hover:bg-primary hover:text-white transition-colors"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.github}
-                      className="p-3 bg-white text-slate-900 rounded-full hover:bg-primary hover:text-white transition-colors"
-                    >
-                      <Github size={20} />
-                    </a>
+              <div className={`relative h-64 overflow-hidden bg-gradient-to-br ${project.gradient}`}>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.25),_transparent_35%),linear-gradient(to_bottom,_rgba(255,255,255,0.08),_transparent)]" />
+                <div className="relative h-full flex flex-col justify-between p-6 text-white">
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="inline-flex px-3 py-1 rounded-full bg-white/15 border border-white/20 text-xs font-semibold uppercase tracking-[0.2em]">
+                      {project.eyebrow}
+                    </span>
+                    <Github size={20} className="text-white/80" />
+                  </div>
+                  <div>
+                    <div className="text-white/70 text-sm mb-2">{project.summary}</div>
+                    <div className="text-3xl font-black leading-tight">{project.title}</div>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {project.highlights.map((highlight) => (
+                      <span
+                        key={highlight}
+                        className="px-3 py-1 rounded-full text-xs font-medium bg-slate-950/20 border border-white/15"
+                      >
+                        {highlight}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -106,6 +125,26 @@ const Projects = () => {
                       {t}
                     </span>
                   ))}
+                </div>
+                <div className="flex flex-wrap gap-3 mt-6">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors"
+                  >
+                    {project.linkLabel}
+                    <ExternalLink size={16} />
+                  </a>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold hover:border-primary hover:text-primary transition-colors"
+                  >
+                    GitHub
+                    <Github size={16} />
+                  </a>
                 </div>
               </div>
             </motion.div>

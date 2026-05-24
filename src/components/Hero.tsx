@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Github } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -42,18 +42,18 @@ const Hero = () => {
           </motion.div>
 
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            Available for new opportunities
+            Available for full-stack and game dev work
           </span>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-8 leading-[1.1] md:leading-[1.15]">
             Hi, I'm <span className="text-primary block md:inline">Tristan Kyle Karamihan.</span>
             <span className="block mt-2 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-              A Creative Developer.
+              A Full Stack Developer & Game Developer.
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 text-balance">
-            I'm a Full Stack Developer passionate about crafting beautiful, high-performance web applications that solve real-world problems.
+            I build full-stack web applications, business tools, and interactive game experiences with a focus on clean UX, solid architecture, and polished execution.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -69,11 +69,13 @@ const Hero = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="/resume.pdf"
+              href="https://github.com/karamihantristankyle"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 rounded-full font-semibold flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors w-full sm:w-auto justify-center"
             >
-              Download CV
-              <Download size={20} />
+              GitHub Profile
+              <Github size={20} />
             </motion.a>
           </div>
         </motion.div>
@@ -88,7 +90,7 @@ const Hero = () => {
           <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl mx-auto max-w-5xl">
             <img
               src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop"
-              alt="Developer Workspace"
+              alt="Full-stack and game development workspace"
               className="w-full h-auto object-cover max-h-[500px]"
             />
           </div>

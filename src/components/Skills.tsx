@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 const skillCategories = [
   {
     title: 'Frontend',
-    skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Redux'],
+    skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Vite'],
   },
   {
     title: 'Backend',
-    skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'GraphQL', 'REST API'],
+    skills: ['Node.js', 'Express', 'REST APIs', 'SQLite', 'PostgreSQL', 'Auth Flows'],
   },
   {
-    title: 'Tools',
-    skills: ['Git', 'Docker', 'AWS', 'Firebase', 'Figma', 'Jest'],
+    title: 'Workflow & Game Dev',
+    skills: ['GitHub', 'Gameplay Prototyping', 'Interaction Design', 'UI Systems', 'Testing', 'Deployment'],
   },
 ];
 
@@ -24,7 +24,7 @@ const Skills = () => {
             Technical <span className="text-primary">Skills</span>
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            My toolkit is constantly evolving, but these are the core technologies I use to bring ideas to life.
+            These are the technologies and workflows I lean on when building full-stack apps, internal tools, and interactive projects.
           </p>
         </div>
 

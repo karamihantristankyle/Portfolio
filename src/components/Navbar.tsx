@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Github, Mail } from 'lucide-react';
 import { cn } from '../lib/utils';
 import ThemeToggle from './ThemeToggle';
 
@@ -41,7 +41,7 @@ const Navbar = () => {
               animate={{ opacity: 1, x: 0 }}
               className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
             >
-              Tan's Portfolio
+              Tristan's Portfolio
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -64,11 +64,11 @@ const Navbar = () => {
               </a>
             ))}
             <div className="flex items-center space-x-4 ml-4 border-l border-slate-200 dark:border-slate-800 pl-4">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-300 hover:text-primary">
+              <a href="https://github.com/karamihantristankyle" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-300 hover:text-primary">
                 <Github size={20} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-300 hover:text-primary">
-                <Linkedin size={20} />
+              <a href="mailto:karamihan.tristankyle@gmail.com" className="text-slate-600 dark:text-slate-300 hover:text-primary">
+                <Mail size={20} />
               </a>
             </div>
           </div>
@@ -106,13 +106,10 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex space-x-6 px-3 pt-4">
-                <a href="https://github.com" className="text-slate-600 dark:text-slate-300">
+                <a href="https://github.com/karamihantristankyle" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-300">
                   <Github size={20} />
                 </a>
-                <a href="https://linkedin.com" className="text-slate-600 dark:text-slate-300">
-                  <Linkedin size={20} />
-                </a>
-                <a href="mailto:hello@example.com" className="text-slate-600 dark:text-slate-300">
+                <a href="mailto:karamihan.tristankyle@gmail.com" className="text-slate-600 dark:text-slate-300">
                   <Mail size={20} />
                 </a>
               </div>
