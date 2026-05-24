@@ -10,8 +10,8 @@ const projects = [
     category: 'Featured / Full Stack',
     description: 'A featured full-stack concept focused on tracking workflows, clean operational visibility, and product usability.',
     tech: ['Full Stack', 'Tracking UI', 'Dashboards', 'Workflow UX'],
-    link: githubRepos,
-    linkLabel: 'Browse GitHub',
+    link: 'https://mototrackph.vercel.app',
+    linkLabel: 'Live Demo',
     github: githubProfile,
     eyebrow: 'Tracking-focused build',
     summary: 'Built around visibility, flow, and management.',
@@ -23,8 +23,8 @@ const projects = [
     category: 'Featured / Game Dev',
     description: 'A sensory web experience designed to ease tension through soothing interaction, playful feedback, and a focused mood.',
     tech: ['HTML', 'Tailwind CSS', 'Interactive Design', 'Game Feel'],
-    link: githubRepos,
-    linkLabel: 'Browse GitHub',
+    link: 'https://stressbuster-website.vercel.app',
+    linkLabel: 'Live Demo',
     github: githubProfile,
     eyebrow: 'Interactive experience',
     summary: 'Game-inspired design with atmosphere and feedback.',
@@ -36,13 +36,39 @@ const projects = [
     category: 'Featured / Productivity',
     description: 'A full-stack attendance and schedule manager built with React, TypeScript, Express, and Vite.',
     tech: ['React', 'TypeScript', 'Express', 'Vite'],
-    link: 'https://github.com/karamihantristankyle/Schedule-Attendance-Manager',
-    linkLabel: 'Open Repository',
+    link: 'https://uphsattendance.vercel.app',
+    linkLabel: 'Live Demo',
     github: 'https://github.com/karamihantristankyle/Schedule-Attendance-Manager',
     eyebrow: 'Business workflow app',
     summary: 'Scheduling and attendance in one focused workflow.',
     highlights: ['Schedules', 'Attendance', 'Admin'],
     gradient: 'from-emerald-500 via-teal-500 to-cyan-700',
+  },
+  {
+    title: 'Capstoned',
+    category: 'More Work / E-Commerce',
+    description: 'A premium headwear e-commerce experience built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    link: 'https://capstoned.vercel.app',
+    linkLabel: 'Live Demo',
+    github: 'https://github.com/karamihantristankyle/Capstoned',
+    eyebrow: 'Premium storefront',
+    summary: 'Luxury-focused shopping experience with polished motion.',
+    highlights: ['Storefront', 'Motion', 'Orders'],
+    gradient: 'from-amber-400 via-yellow-500 to-orange-700',
+  },
+  {
+    title: 'Cafe-Inventory-POS',
+    category: 'More Work / Business System',
+    description: 'A café inventory and POS system focused on day-to-day operations, stock visibility, and checkout workflows.',
+    tech: ['JavaScript', 'POS', 'Inventory', 'Business Tools'],
+    link: 'https://cafe-inventory-pos.vercel.app',
+    linkLabel: 'Live Demo',
+    github: 'https://github.com/karamihantristankyle/Cafe-Inventory-POS',
+    eyebrow: 'Operations platform',
+    summary: 'Inventory control and point-of-sale in one system.',
+    highlights: ['POS', 'Inventory', 'Operations'],
+    gradient: 'from-rose-500 via-orange-500 to-amber-600',
   },
 ];
 
@@ -56,7 +82,7 @@ const Projects = () => {
               Featured <span className="text-primary">Projects</span>
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
-              A curated set of work pulled from the direction of my GitHub portfolio, with my top three projects front and center.
+              A curated set of work from my GitHub portfolio, with my top three projects front and center plus other shipped builds.
             </p>
           </div>
           <a
