@@ -22,12 +22,47 @@ const Navbar = () => {
     const target = document.querySelector(href);
     if (!target) return;
 
-    target.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const navbarOffset = 88;
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY - navbarOffset;
 
-    window.history.replaceState(null, '', href);
+    if (prefersReducedMotion) {
+      window.scrollTo(0, targetPosition);
+      window.history.replaceState(null, '', href);
+      return;
+    }
+
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    const duration = 700;
+    let startTime: number | null = null;
+
+    const easeInOutCubic = (progress: number) =>
+      progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+    const animateScroll = (currentTime: number) => {
+      if (startTime === null) {
+        startTime = currentTime;
+      }
+
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeInOutCubic(progress);
+
+      window.scrollTo(0, startPosition + distance * easedProgress);
+
+      if (progress < 1) {
+        window.requestAnimationFrame(animateScroll);
+        return;
+      }
+
+      window.history.replaceState(null, '', href);
+    };
+
+    window.requestAnimationFrame(animateScroll);
+
   };
 
   useEffect(() => {
