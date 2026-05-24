@@ -29,6 +29,10 @@ body {
   html {
     scroll-behavior: smooth;
   }
+
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
 }
 
 @layer utilities {

@@ -1,4 +1,4 @@
-import { useState, useEffect, type MouseEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Github, Mail } from 'lucide-react';
 import { cn } from '../lib/utils';
@@ -22,21 +22,12 @@ const Navbar = () => {
     const target = document.querySelector(href);
     if (!target) return;
 
-    const navbarOffset = 96;
-    const top = target.getBoundingClientRect().top + window.scrollY - navbarOffset;
-
-    window.scrollTo({
-      top,
+    target.scrollIntoView({
       behavior: 'smooth',
+      block: 'start',
     });
 
     window.history.replaceState(null, '', href);
-  };
-
-  const handleNavClick = (href: string) => (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    scrollToSection(href);
-    setIsOpen(false);
   };
 
   useEffect(() => {
@@ -76,14 +67,14 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
-                onClick={handleNavClick(link.href)}
+                type="button"
+                onClick={() => scrollToSection(link.href)}
                 className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
               >
                 {link.name}
-              </a>
+              </button>
             ))}
             <div className="flex items-center space-x-4 ml-4 border-l border-slate-200 dark:border-slate-800 pl-4">
               <a href="https://github.com/karamihantristankyle" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-300 hover:text-primary">
@@ -118,14 +109,17 @@ const Navbar = () => {
           >
             <div className="px-4 pt-2 pb-6 space-y-2">
               {navLinks.map((link) => (
-                <a
+                <button
                   key={link.name}
-                  href={link.href}
-                  onClick={handleNavClick(link.href)}
+                  type="button"
+                  onClick={() => {
+                    scrollToSection(link.href);
+                    setIsOpen(false);
+                  }}
                   className="block px-3 py-2 text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
                 >
                   {link.name}
-                </a>
+                </button>
               ))}
               <div className="flex space-x-6 px-3 pt-4">
                 <a href="https://github.com/karamihantristankyle" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-300">
