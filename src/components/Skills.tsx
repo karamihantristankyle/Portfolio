@@ -7,45 +7,48 @@ const skillCategories = [
   },
   {
     title: 'Backend',
-    skills: ['Node.js', 'Express', 'REST APIs', 'SQLite', 'PostgreSQL', 'Auth Flows'],
+    skills: ['Node.js', 'Express', 'REST APIs', 'SQLite', 'PostgreSQL', 'Authentication'],
   },
   {
-    title: 'Workflow & Game Dev',
-    skills: ['GitHub', 'Gameplay Prototyping', 'Interaction Design', 'UI Systems', 'Testing', 'Deployment'],
+    title: 'Workflow',
+    skills: ['GitHub', 'Deployment', 'UI Systems', 'Interaction Design', 'Testing', 'Gameplay Prototyping'],
   },
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 px-4 bg-white dark:bg-slate-900/50">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            Technical <span className="text-primary">Skills</span>
+    <section id="skills" className="border-t border-slate-200 px-4 py-20">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-14 max-w-2xl">
+          <div className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
+            Stack
+          </div>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            Tech I work with.
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            These are the technologies and workflows I lean on when building full-stack apps, internal tools, and interactive projects.
+          <p className="mt-4 text-lg leading-8 text-slate-600">
+            The tools below cover most of the work I do across frontend, backend, and interactive product development.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-6 lg:grid-cols-3">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
+              className="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm"
             >
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">
+              <h3 className="text-lg font-semibold text-slate-950">
                 {category.title}
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="mt-5 flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-4 py-2 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-xl text-sm font-medium border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary dark:hover:border-primary hover:text-primary transition-colors cursor-default"
+                    className="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700"
                   >
                     {skill}
                   </span>

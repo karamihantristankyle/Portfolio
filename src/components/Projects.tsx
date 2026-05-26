@@ -1,206 +1,355 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const githubProfile = 'https://github.com/karamihantristankyle';
 const githubRepos = `${githubProfile}?tab=repositories`;
+const assetBase = import.meta.env.BASE_URL;
 
 const projects = [
   {
     title: 'MotoTrack',
     category: 'Featured / Full Stack',
-    description: 'A featured full-stack concept focused on tracking workflows, clean operational visibility, and product usability.',
-    tech: ['Full Stack', 'Tracking UI', 'Dashboards', 'Workflow UX'],
+    previews: [
+      `${assetBase}mototrack-1.png`,
+      `${assetBase}mototrack-2.png`,
+      `${assetBase}mototrack-3.png`,
+      `${assetBase}mototrack-4.png`,
+    ],
+    previewAlt: 'MotoTrack live app preview',
+    intro: 'A motorcycle-focused tracking product with an emphasis on account flow, visibility, and clear everyday use.',
+    description: 'MotoTrack is built around rider access, monitoring views, and a straightforward interface that keeps the product easy to understand from the first screen onward.',
+    tech: ['React', 'Tracking UI', 'Authentication', 'Product Design'],
     link: 'https://mototrackph.vercel.app',
-    linkLabel: 'Live Demo',
     github: githubProfile,
-    eyebrow: 'Tracking-focused build',
-    summary: 'Built around visibility, flow, and management.',
-    highlights: ['Operations', 'Monitoring', 'Clear UX'],
-    gradient: 'from-sky-500 via-cyan-500 to-blue-700',
+    highlights: ['Rider auth', 'Trip visibility', 'Clean flow'],
   },
   {
     title: 'StressBuster',
     category: 'Featured / Game Dev',
-    description: 'A sensory web experience designed to ease tension through soothing interaction, playful feedback, and a focused mood.',
-    tech: ['HTML', 'Tailwind CSS', 'Interactive Design', 'Game Feel'],
-    link: 'https://stressbuster-website.vercel.app',
-    linkLabel: 'Live Demo',
+    previews: [
+      `${assetBase}stressbuster-1.png`,
+      `${assetBase}stressbuster-2.png`,
+      `${assetBase}stressbuster-3.png`,
+      `${assetBase}stressbuster-4.png`,
+    ],
+    previewAlt: 'StressBuster live app preview',
+    intro: 'A game-inspired wellness concept that uses calm visuals, simple interaction, and a lighter emotional tone.',
+    description: 'StressBuster explores how a soft interface, focused flow, and approachable UI can make a simple self-care idea feel more engaging without overcomplicating it.',
+    tech: ['Interactive UI', 'HTML', 'Tailwind CSS', 'Game Feel'],
+    link: 'https://stressbuster.vercel.app',
     github: githubProfile,
-    eyebrow: 'Interactive experience',
-    summary: 'Game-inspired design with atmosphere and feedback.',
-    highlights: ['Mood', 'Play', 'Feedback'],
-    gradient: 'from-violet-500 via-fuchsia-500 to-indigo-700',
+    highlights: ['Calming UI', 'Playful flow', 'Soft feedback'],
   },
   {
     title: 'AttendanceScheduleManager',
     category: 'Featured / Productivity',
-    description: 'A full-stack attendance and schedule manager built with React, TypeScript, Express, and Vite.',
+    previews: [
+      `${assetBase}attendance-1.png`,
+      `${assetBase}attendance-2.png`,
+      `${assetBase}attendance-3.png`,
+      `${assetBase}attendance-4.png`,
+    ],
+    previewAlt: 'Attendance Schedule Manager live app preview',
+    intro: 'A school-focused workflow tool for handling attendance, schedules, and day-to-day admin access in one place.',
+    description: 'This project is structured to support practical school operations, with a clean login flow and a layout designed around fast daily use instead of cluttered controls.',
     tech: ['React', 'TypeScript', 'Express', 'Vite'],
-    link: 'https://uphsattendance.vercel.app',
-    linkLabel: 'Live Demo',
+    link: 'https://the-attendance.vercel.app',
     github: 'https://github.com/karamihantristankyle/Schedule-Attendance-Manager',
-    eyebrow: 'Business workflow app',
-    summary: 'Scheduling and attendance in one focused workflow.',
-    highlights: ['Schedules', 'Attendance', 'Admin'],
-    gradient: 'from-emerald-500 via-teal-500 to-cyan-700',
+    highlights: ['Teacher login', 'Attendance flow', 'School admin'],
   },
   {
     title: 'MotoPeek',
-    category: 'More Work / Customizer',
-    description: 'A motorcycle customization experience for exploring Yamaha Aerox, NMAX, and PCX variants in an interactive build flow.',
-    tech: ['JavaScript', 'Customizer', 'Motorcycles', 'Interactive UI'],
+    category: 'More Work / Product UI',
+    previews: [
+      `${assetBase}motopeek-1.png`,
+      `${assetBase}motopeek-2.png`,
+      `${assetBase}motopeek-3.png`,
+      `${assetBase}motopeek-4.png`,
+    ],
+    previewAlt: 'MotoPeek live app preview',
+    intro: 'A motorcycle customizer built to make browsing variants and visual choices feel more interactive.',
+    description: 'MotoPeek focuses on product presentation, option browsing, and a smoother way to compare motorcycle styles without turning the interface into noise.',
+    tech: ['JavaScript', 'Customizer', 'Interactive UI', 'Product Experience'],
     link: 'https://motopeek.vercel.app',
-    linkLabel: 'Live Demo',
     github: 'https://github.com/karamihantristankyle/MotoPeek',
-    eyebrow: 'Bike customizer',
-    summary: 'Interactive motorcycle variant and style exploration.',
-    highlights: ['Aerox', 'NMAX', 'PCX'],
-    gradient: 'from-slate-700 via-blue-700 to-cyan-600',
-  },
-  {
-    title: 'Stressbuster Website',
-    category: 'More Work / Product Website',
-    description: 'A promotional landing page for StressBuster, built to present the app experience, features, and download flow with polished presentation.',
-    tech: ['HTML', 'Landing Page', 'Product Marketing', 'UI Motion'],
-    link: 'https://stressbuster-website.vercel.app',
-    linkLabel: 'Live Demo',
-    github: 'https://github.com/karamihantristankyle/stressbuster-website',
-    eyebrow: 'Marketing site',
-    summary: 'Showcases the StressBuster product and download journey.',
-    highlights: ['Landing', 'Features', 'Download'],
-    gradient: 'from-pink-500 via-fuchsia-500 to-violet-700',
   },
   {
     title: 'Capstoned',
     category: 'More Work / E-Commerce',
-    description: 'A premium headwear e-commerce experience built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.',
+    previews: [
+      `${assetBase}capstoned-1.png`,
+      `${assetBase}capstoned-2.png`,
+      `${assetBase}capstoned-3.png`,
+      `${assetBase}capstoned-4.png`,
+    ],
+    previewAlt: 'Capstoned live storefront preview',
+    intro: 'An e-commerce storefront built to feel polished, premium, and easy to browse.',
+    description: 'Capstoned brings together product presentation, smoother motion, and a cleaner shopping flow to make the storefront feel more deliberate than a generic shop template.',
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     link: 'https://capstoned.vercel.app',
-    linkLabel: 'Live Demo',
     github: 'https://github.com/karamihantristankyle/Capstoned',
-    eyebrow: 'Premium storefront',
-    summary: 'Luxury-focused shopping experience with polished motion.',
-    highlights: ['Storefront', 'Motion', 'Orders'],
-    gradient: 'from-amber-400 via-yellow-500 to-orange-700',
   },
   {
     title: 'Cafe-Inventory-POS',
     category: 'More Work / Business System',
-    description: 'A café inventory and POS system focused on day-to-day operations, stock visibility, and checkout workflows.',
-    tech: ['JavaScript', 'POS', 'Inventory', 'Business Tools'],
+    previews: [
+      `${assetBase}cafestone-1.png`,
+      `${assetBase}cafestone-2.png`,
+      `${assetBase}cafestone-3.png`,
+      `${assetBase}cafestone-4.png`,
+    ],
+    previewAlt: 'Cafe Inventory POS live system preview',
+    intro: 'A cafe operations system that combines inventory visibility and point-of-sale workflows.',
+    description: 'This build is centered on practical store operations, giving the business a clearer way to track stock, process sales, and reduce friction in daily use.',
     link: 'https://cafe-inventory-pos.vercel.app',
-    linkLabel: 'Live Demo',
     github: 'https://github.com/karamihantristankyle/Cafe-Inventory-POS',
-    eyebrow: 'Operations platform',
-    summary: 'Inventory control and point-of-sale in one system.',
-    highlights: ['POS', 'Inventory', 'Operations'],
-    gradient: 'from-rose-500 via-orange-500 to-amber-600',
+    tech: ['JavaScript', 'POS', 'Inventory', 'Business Tools'],
   },
 ];
 
+const featuredProjects = projects.slice(0, 3);
+const otherProjects = projects.slice(3);
+
+const PreviewCarousel = ({
+  images,
+  alt,
+  compact = false,
+}: {
+  images: string[];
+  alt: string;
+  compact?: boolean;
+}) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return undefined;
+
+    const interval = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % images.length);
+    }, 3000);
+
+    return () => window.clearInterval(interval);
+  }, [images]);
+
+  const showPrevious = () => {
+    setActiveIndex((current) => (current - 1 + images.length) % images.length);
+  };
+
+  const showNext = () => {
+    setActiveIndex((current) => (current + 1) % images.length);
+  };
+
+  return (
+    <div className="relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white">
+      <div className={`${compact ? 'aspect-[16/10]' : 'aspect-[16/10]'} w-full bg-slate-100`}>
+        <img
+          src={images[activeIndex]}
+          alt={alt}
+          className="h-full w-full object-cover object-top"
+          loading="lazy"
+        />
+      </div>
+
+      {images.length > 1 && (
+        <div className="flex items-center justify-between gap-4 border-t border-slate-200 bg-white px-4 py-3">
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={showPrevious}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950"
+              aria-label="Show previous project screenshot"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button
+              type="button"
+              onClick={showNext}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950"
+              aria-label="Show next project screenshot"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
+
+          <div className="flex items-center gap-2">
+            {images.map((image, index) => (
+              <button
+                key={image}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                className={`h-2.5 rounded-full transition-all ${
+                  index === activeIndex ? 'w-6 bg-slate-950' : 'w-2.5 bg-slate-300'
+                }`}
+                aria-label={`Show screenshot ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 px-4 bg-slate-50 dark:bg-slate-950">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+    <section id="projects" className="border-t border-slate-200 px-4 py-20">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-              Featured <span className="text-primary">Projects</span>
+            <div className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
+              Selected Work
+            </div>
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              Projects worth opening.
             </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
-              A curated set of work from my GitHub portfolio, with my top three projects front and center plus other shipped builds.
+            <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+              A mix of product builds, business systems, and interactive experiments, now shown with actual previews instead of filler summaries.
             </p>
           </div>
           <a
             href={githubRepos}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-700 hover:text-slate-950 transition-colors"
           >
             View All On GitHub
-            <ArrowRight size={20} />
+            <ArrowRight size={16} />
           </a>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div className="space-y-6">
+          {featuredProjects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all"
+              className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md"
             >
-              <div className={`relative h-64 overflow-hidden bg-gradient-to-br ${project.gradient}`}>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.25),_transparent_35%),linear-gradient(to_bottom,_rgba(255,255,255,0.08),_transparent)]" />
-                <div className="relative h-full flex flex-col justify-between p-6 text-white">
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="inline-flex px-3 py-1 rounded-full bg-white/15 border border-white/20 text-xs font-semibold uppercase tracking-[0.2em]">
-                      {project.eyebrow}
-                    </span>
-                    <Github size={20} className="text-white/80" />
+              <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
+                <div className="border-b border-slate-200 bg-slate-50 p-4 lg:border-b-0 lg:border-r">
+                  <PreviewCarousel images={project.previews} alt={project.previewAlt} />
+                </div>
+                <div className="p-8">
+                  <div className="text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
+                    {project.category}
                   </div>
-                  <div>
-                    <div className="text-white/70 text-sm mb-2">{project.summary}</div>
-                    <div className="text-3xl font-black leading-tight">{project.title}</div>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.highlights.map((highlight) => (
-                      <span
+                  <h3 className="mt-4 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+                    {project.title}
+                  </h3>
+                  <p className="mt-4 text-lg leading-8 text-slate-700">
+                    {project.intro}
+                  </p>
+                  <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                    {project.highlights?.map((highlight) => (
+                      <div
                         key={highlight}
-                        className="px-3 py-1 rounded-full text-xs font-medium bg-slate-950/20 border border-white/15"
+                        className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
                       >
                         {highlight}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full border border-slate-200 px-3 py-1 text-sm text-slate-600"
+                      >
+                        {t}
                       </span>
                     ))}
                   </div>
-                </div>
-              </div>
 
-              <div className="p-6">
-                <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
-                  {project.category}
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-full text-xs font-medium"
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-medium text-white hover:bg-slate-800 transition-colors"
                     >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-3 mt-6">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors"
-                  >
-                    {project.linkLabel}
-                    <ExternalLink size={16} />
-                  </a>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold hover:border-primary hover:text-primary transition-colors"
-                  >
-                    GitHub
-                    <Github size={16} />
-                  </a>
+                      Live Demo
+                      <ExternalLink size={16} />
+                    </a>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-medium text-slate-700 hover:border-slate-300 hover:text-slate-950 transition-colors"
+                    >
+                      GitHub
+                      <Github size={16} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-16">
+          <div className="mb-8 text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
+            More Projects
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {otherProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.06 }}
+                viewport={{ once: true }}
+                className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm"
+              >
+                <div className="border-b border-slate-200 bg-slate-50 p-4">
+                  <PreviewCarousel images={project.previews} alt={project.previewAlt} compact />
+                </div>
+                <div className="p-6">
+                  <div className="text-sm font-medium text-slate-500">{project.category}</div>
+                  <h3 className="mt-3 text-xl font-semibold text-slate-950">{project.title}</h3>
+                  <p className="mt-3 text-base leading-7 text-slate-700">{project.intro}</p>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{project.description}</p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                  </div>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-slate-950 hover:text-slate-700"
+                    >
+                      Live Demo
+                      <ExternalLink size={15} />
+                    </a>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-950"
+                    >
+                      GitHub
+                      <Github size={15} />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
