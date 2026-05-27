@@ -14,7 +14,7 @@ function App() {
       <main>
         <Hero />
         <Projects />
-        <section className="px-4 pb-20 lg:hidden">
+        <section className="px-4 pb-20">
           <div className="max-w-6xl mx-auto">
             <ProfileSummaryCard />
           </div>

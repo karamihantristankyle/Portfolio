@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Github, Mail } from 'lucide-react';
-import ProfileSummaryCard from './ProfileSummaryCard';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -12,16 +11,16 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="px-4 pb-16 pt-36 sm:pt-40">
+    <section id="home" className="px-4 pb-16 pt-28 sm:pt-32">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="grid gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:items-end"
+          className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end"
         >
           <div className="max-w-3xl">
-            <div className="mb-6 inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-sm">
+            <div className="mb-4 inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-sm">
               Full Stack Developer and Game Developer based in Laguna
             </div>
 
@@ -29,7 +28,7 @@ const Hero = () => {
               I build clean web products and interactive experiences that feel simple to use.
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
               I focus on full-stack apps, business tools, and game-driven interactions with an emphasis on clarity, usability, and solid implementation.
             </p>
 
@@ -81,8 +80,6 @@ const Hero = () => {
               </div>
             </div>
           </div>
-
-          <ProfileSummaryCard className="hidden lg:block lg:justify-self-end" />
         </motion.div>
       </div>
     </section>
