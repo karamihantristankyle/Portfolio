@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
+  const [isDark, setIsDark] = useState(() => {
     const theme = localStorage.getItem('theme');
-    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
+    return theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  });
+
+  // Sync the external DOM theme class with React state.
+  useLayoutEffect(() => {
+    document.documentElement.classList.toggle('dark', isDark);
+  }, [isDark]);
 
   const toggleTheme = () => {
     if (isDark) {

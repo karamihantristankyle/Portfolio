@@ -88,7 +88,7 @@ const Navbar = () => {
             className="text-left"
           >
             <div className="text-base sm:text-lg font-semibold tracking-tight text-slate-950">
-              Tristan Karamihan
+              Tristan
             </div>
             <div className="text-sm text-slate-500">
               Full Stack Developer & Game Developer

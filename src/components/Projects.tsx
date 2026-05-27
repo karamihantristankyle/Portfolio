@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState, type FocusEvent, type TouchEvent } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const githubProfile = 'https://github.com/karamihantristankyle';
@@ -121,16 +121,29 @@ const PreviewCarousel = ({
   compact?: boolean;
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   useEffect(() => {
-    if (images.length <= 1) return undefined;
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
+
+    updatePreference();
+    mediaQuery.addEventListener('change', updatePreference);
+
+    return () => mediaQuery.removeEventListener('change', updatePreference);
+  }, []);
+
+  useEffect(() => {
+    if (images.length <= 1 || isPaused || prefersReducedMotion) return undefined;
 
     const interval = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % images.length);
-    }, 3000);
+    }, 3600);
 
     return () => window.clearInterval(interval);
-  }, [images]);
+  }, [images, isPaused, prefersReducedMotion]);
 
   const showPrevious = () => {
     setActiveIndex((current) => (current - 1 + images.length) % images.length);
@@ -140,49 +153,132 @@ const PreviewCarousel = ({
     setActiveIndex((current) => (current + 1) % images.length);
   };
 
+  const showImage = (index: number) => {
+    setActiveIndex(index);
+  };
+
+  const handleFocusLeave = (event: FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setIsPaused(false);
+    }
+  };
+
+  const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    setIsPaused(true);
+    setTouchStartX(event.touches[0]?.clientX ?? null);
+  };
+
+  const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+    if (touchStartX === null) {
+      setIsPaused(false);
+      return;
+    }
+
+    const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX;
+    const travel = touchStartX - touchEndX;
+
+    if (Math.abs(travel) > 40) {
+      if (travel > 0) {
+        showNext();
+      } else {
+        showPrevious();
+      }
+    }
+
+    setTouchStartX(null);
+    setIsPaused(false);
+  };
+
   return (
-    <div className="relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white">
-      <div className={`${compact ? 'aspect-[16/10]' : 'aspect-[16/10]'} w-full bg-slate-100`}>
-        <img
-          src={images[activeIndex]}
-          alt={alt}
-          className="h-full w-full object-cover object-top"
-          loading="lazy"
-        />
+    <div
+      className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-[0_18px_45px_-32px_rgba(15,23,42,0.45)]"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={handleFocusLeave}
+    >
+      <div
+        className={`relative w-full overflow-hidden bg-slate-100 ${
+          compact ? 'aspect-[16/11] sm:aspect-[16/10]' : 'aspect-[16/11] md:aspect-[16/10]'
+        }`}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={() => {
+          setTouchStartX(null);
+          setIsPaused(false);
+        }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={images[activeIndex]}
+            src={images[activeIndex]}
+            alt={alt}
+            className="absolute inset-0 h-full w-full object-cover object-top"
+            loading="lazy"
+            initial={prefersReducedMotion ? false : { opacity: 0, scale: 1.025 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.985 }}
+            transition={
+              prefersReducedMotion
+                ? { duration: 0.15 }
+                : { duration: 0.55, ease: [0.22, 1, 0.36, 1] }
+            }
+          />
+        </AnimatePresence>
+
+        {images.length > 1 && (
+          <>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-950/15 to-transparent" />
+            <div className="absolute left-4 top-4 inline-flex items-center rounded-full border border-white/60 bg-white/85 px-3 py-1 text-xs font-medium text-slate-700 shadow-sm backdrop-blur">
+              {String(activeIndex + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
+            </div>
+          </>
+        )}
       </div>
 
       {images.length > 1 && (
-        <div className="flex items-center justify-between gap-4 border-t border-slate-200 bg-white px-4 py-3">
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={showPrevious}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950"
-              aria-label="Show previous project screenshot"
-            >
-              <ChevronLeft size={16} />
-            </button>
-            <button
-              type="button"
-              onClick={showNext}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950"
-              aria-label="Show next project screenshot"
-            >
-              <ChevronRight size={16} />
-            </button>
+        <div className="flex flex-col gap-3 border-t border-slate-200 bg-white px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={showPrevious}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-950"
+                aria-label="Show previous project screenshot"
+              >
+                <ChevronLeft size={17} />
+              </button>
+              <button
+                type="button"
+                onClick={showNext}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-950"
+                aria-label="Show next project screenshot"
+              >
+                <ChevronRight size={17} />
+              </button>
+            </div>
+
+            <div className="text-xs font-medium uppercase tracking-[0.16em] text-slate-400">
+              {isPaused ? 'Paused' : 'Auto view'}
+            </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {images.map((image, index) => (
               <button
                 key={image}
                 type="button"
-                onClick={() => setActiveIndex(index)}
-                className={`h-2.5 rounded-full transition-all ${
-                  index === activeIndex ? 'w-6 bg-slate-950' : 'w-2.5 bg-slate-300'
-                }`}
+                onClick={() => showImage(index)}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full"
                 aria-label={`Show screenshot ${index + 1}`}
-              />
+                aria-pressed={index === activeIndex}
+              >
+                <span
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === activeIndex ? 'w-7 bg-slate-950' : 'w-2.5 bg-slate-300 hover:bg-slate-400'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>

@@ -93,12 +93,12 @@ const Hero = () => {
                   <div className="h-20 w-20 overflow-hidden rounded-2xl bg-slate-100">
                     <img
                       src={`${import.meta.env.BASE_URL}profile.png`}
-                      alt="Tristan Kyle Karamihan"
+                      alt="Tristan profile photo"
                       className="h-full w-full object-cover"
                     />
                   </div>
                   <div>
-                    <div className="text-lg font-semibold text-slate-950">Tristan Kyle Karamihan</div>
+                    <div className="text-lg font-semibold text-slate-950">Tristan</div>
                     <div className="text-sm text-slate-500">Building across web, workflow, and game-inspired interaction</div>
                   </div>
                 </div>
