@@ -9,7 +9,7 @@ const assetBase = import.meta.env.BASE_URL;
 const projects = [
   {
     title: 'MotoTrack',
-    category: 'Featured / Full Stack',
+    category: 'Featured / Web App',
     previews: [
       `${assetBase}mototrack-1.png`,
       `${assetBase}mototrack-2.png`,
@@ -17,29 +17,28 @@ const projects = [
       `${assetBase}mototrack-4.png`,
     ],
     previewAlt: 'MotoTrack live app preview',
-    intro: 'A motorcycle-focused tracking product with an emphasis on account flow, visibility, and clear everyday use.',
-    description: 'MotoTrack is built around rider access, monitoring views, and a straightforward interface that keeps the product easy to understand from the first screen onward.',
+    intro: 'Track rides, trips, and account activity in one place.',
+    description: 'Built for riders who need a simple way to log in, see their data, and move on.',
     tech: ['React', 'Tracking UI', 'Authentication', 'Product Design'],
     link: 'https://mototrack.codewithtan.com',
     github: githubProfile,
-    highlights: ['Rider auth', 'Trip visibility', 'Clean flow'],
+    highlights: ['Rider login', 'Trip history', 'Clean dashboard'],
   },
   {
-    title: 'StressBuster',
-    category: 'Featured / Game Dev',
+    title: 'StressBuster Web',
+    category: 'Featured / Marketing Site',
     previews: [
       `${assetBase}stressbuster-1.png`,
       `${assetBase}stressbuster-2.png`,
       `${assetBase}stressbuster-3.png`,
-      `${assetBase}stressbuster-4.png`,
     ],
-    previewAlt: 'StressBuster live app preview',
-    intro: 'A game-inspired wellness concept that uses calm visuals, simple interaction, and a lighter emotional tone.',
-    description: 'StressBuster explores how a soft interface, focused flow, and approachable UI can make a simple self-care idea feel more engaging without overcomplicating it.',
-    tech: ['Interactive UI', 'HTML', 'Tailwind CSS', 'Game Feel'],
-    link: 'https://stressbuster.codewithtan.com',
+    previewAlt: 'StressBuster marketing site preview',
+    intro: 'Landing page for the StressBuster app.',
+    description: 'Hero, features, and download links — built to explain the product and send people to the app.',
+    tech: ['HTML', 'Tailwind CSS', 'Animation', 'Lucide Icons'],
+    link: 'https://stressbusterweb.codewithtan.com',
     github: githubProfile,
-    highlights: ['Calming UI', 'Playful flow', 'Soft feedback'],
+    highlights: ['Hero section', 'Feature cards', 'Download CTA'],
   },
   {
     title: 'AttendanceScheduleManager',
@@ -51,12 +50,27 @@ const projects = [
       `${assetBase}attendance-4.png`,
     ],
     previewAlt: 'Attendance Schedule Manager live app preview',
-    intro: 'A school-focused workflow tool for handling attendance, schedules, and day-to-day admin access in one place.',
-    description: 'This project is structured to support practical school operations, with a clean login flow and a layout designed around fast daily use instead of cluttered controls.',
+    intro: 'Attendance and schedules for school staff.',
+    description: 'Teachers log in, mark attendance, and manage schedules without digging through menus.',
     tech: ['React', 'TypeScript', 'Express', 'Vite'],
     link: 'https://uphsattendance.codewithtan.com',
     github: 'https://github.com/karamihantristankyle/Schedule-Attendance-Manager',
-    highlights: ['Teacher login', 'Attendance flow', 'School admin'],
+    highlights: ['Teacher login', 'Attendance tracking', 'Schedule view'],
+  },
+  {
+    title: 'StressBuster App',
+    category: 'More Work / Web App',
+    previews: [
+      `${assetBase}stressbuster-4.png`,
+      `${assetBase}stressbuster-preview.png`,
+      `${assetBase}stressbuster.png`,
+    ],
+    previewAlt: 'StressBuster login app preview',
+    intro: 'Login and account flow for the StressBuster app.',
+    description: 'Sign in, create an account, or reset a password — the web portal tied to the mobile experience.',
+    tech: ['Authentication', 'Web UI', 'HTML', 'CSS'],
+    link: 'https://stressbuster.codewithtan.com',
+    github: githubProfile,
   },
   {
     title: 'MotoPeek',
@@ -68,8 +82,8 @@ const projects = [
       `${assetBase}motopeek-4.png`,
     ],
     previewAlt: 'MotoPeek live app preview',
-    intro: 'A motorcycle customizer built to make browsing variants and visual choices feel more interactive.',
-    description: 'MotoPeek focuses on product presentation, option browsing, and a smoother way to compare motorcycle styles without turning the interface into noise.',
+    intro: 'Pick colors and parts. See the bike change.',
+    description: 'A visual customizer — browse options, compare looks, skip the clutter.',
     tech: ['JavaScript', 'Customizer', 'Interactive UI', 'Product Experience'],
     link: 'https://motopeek.codewithtan.com',
     github: 'https://github.com/karamihantristankyle/MotoPeek',
@@ -84,8 +98,8 @@ const projects = [
       `${assetBase}capstoned-4.png`,
     ],
     previewAlt: 'Capstoned live storefront preview',
-    intro: 'An e-commerce storefront built to feel polished, premium, and easy to browse.',
-    description: 'Capstoned brings together product presentation, smoother motion, and a cleaner shopping flow to make the storefront feel more deliberate than a generic shop template.',
+    intro: 'An online store for browsing and buying.',
+    description: 'Product pages, cart flow, and motion that makes the shop feel put-together.',
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     link: 'https://capstoned.codewithtan.com',
     github: 'https://github.com/karamihantristankyle/Capstoned',
@@ -100,8 +114,8 @@ const projects = [
       `${assetBase}cafestone-4.png`,
     ],
     previewAlt: 'Cafe Inventory POS live system preview',
-    intro: 'A cafe operations system that combines inventory visibility and point-of-sale workflows.',
-    description: 'This build is centered on practical store operations, giving the business a clearer way to track stock, process sales, and reduce friction in daily use.',
+    intro: 'Run sales and track inventory from one screen.',
+    description: 'For cafe operations — ring up orders, watch stock, keep daily work moving.',
     link: 'https://coffeepos.codewithtan.com',
     github: 'https://github.com/karamihantristankyle/Cafe-Inventory-POS',
     tech: ['JavaScript', 'POS', 'Inventory', 'Business Tools'],
@@ -297,10 +311,10 @@ const Projects = () => {
               Selected Work
             </div>
             <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-              Projects worth opening.
+              Things I&apos;ve shipped.
             </h2>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-              A mix of product builds, business systems, and interactive experiments, now shown with actual previews instead of filler summaries.
+              Real projects with live links. Click through if you want to see how they work.
             </p>
           </div>
           <a

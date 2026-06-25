@@ -21,15 +21,15 @@ const Hero = () => {
         >
           <div className="max-w-3xl">
             <div className="mb-4 inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-sm">
-              Full Stack Developer and Game Developer based in Laguna
+              Developer · Laguna, Philippines
             </div>
 
             <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-7xl">
-              I build clean web products and interactive experiences that feel simple to use.
+              I build software that solves real problems.
             </h1>
 
             <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-              I focus on full-stack apps, business tools, and game-driven interactions with an emphasis on clarity, usability, and solid implementation.
+              Websites, internal tools, storefronts — whatever the project needs. I pick up the work, figure out what matters, and ship something that holds up.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -68,15 +68,15 @@ const Hero = () => {
             <div className="mt-12 grid gap-4 lg:grid-cols-3">
               <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
                 <div className="text-sm text-slate-500">What I build</div>
-                <div className="mt-2 text-base font-medium text-slate-950">Web apps, tools, and interactive experiences</div>
+                <div className="mt-2 text-base font-medium text-slate-950">Web apps, business tools, and whatever else the job calls for</div>
               </div>
               <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-                <div className="text-sm text-slate-500">Main focus</div>
-                <div className="mt-2 text-base font-medium text-slate-950">Useful product design, clear systems, and reliable builds</div>
+                <div className="text-sm text-slate-500">How I work</div>
+                <div className="mt-2 text-base font-medium text-slate-950">Understand the problem first, then build something that actually gets used</div>
               </div>
               <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
                 <div className="text-sm text-slate-500">Open to</div>
-                <div className="mt-2 text-base font-medium text-slate-950">Freelance work, collaborations, and product roles</div>
+                <div className="mt-2 text-base font-medium text-slate-950">Freelance, contracts, collabs, and new projects</div>
               </div>
             </div>
           </div>

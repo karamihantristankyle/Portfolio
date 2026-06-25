@@ -11,7 +11,7 @@ const skillCategories = [
   },
   {
     title: 'Workflow',
-    skills: ['GitHub', 'Deployment', 'UI Systems', 'Interaction Design', 'Testing', 'Gameplay Prototyping'],
+    skills: ['GitHub', 'Deployment', 'UI Systems', 'Interaction Design', 'Testing', 'Prototyping'],
   },
 ];
 
@@ -24,10 +24,10 @@ const Skills = () => {
             Stack
           </div>
           <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-            Tech I work with.
+            Tools I use.
           </h2>
           <p className="mt-4 text-lg leading-8 text-slate-600">
-            The tools below cover most of the work I do across frontend, backend, and interactive product development.
+            Depends on the project. These are the ones I reach for most often.
           </p>
         </div>
 

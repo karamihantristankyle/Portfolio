@@ -19,7 +19,7 @@ const Contact = () => {
               Got something in mind?
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              If you need a full-stack build, a polished frontend, or an interactive concept brought to life, feel free to reach out. A clear idea is enough to start the conversation.
+              Have a project, a problem, or just an idea? Send a message. You don&apos;t need a full spec — a rough direction is enough to start.
             </p>
           </div>
 

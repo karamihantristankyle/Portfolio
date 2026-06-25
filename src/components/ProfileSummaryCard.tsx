@@ -24,21 +24,21 @@ const ProfileSummaryCard = ({ className = '' }: ProfileSummaryCardProps) => {
             </div>
             <div>
               <div className="text-lg font-semibold text-slate-950">Tristan</div>
-              <div className="text-sm text-slate-500">Building across web, workflow, and game-inspired interaction</div>
+              <div className="text-sm text-slate-500">Developer · Laguna</div>
             </div>
           </div>
 
           <div className="mt-8 space-y-4">
             <div className="rounded-2xl bg-slate-50 p-4">
-              <div className="text-sm text-slate-500">Selected priorities</div>
+              <div className="text-sm text-slate-500">What I care about</div>
               <div className="mt-2 text-sm leading-6 text-slate-700">
-                Clean UI, straightforward UX, maintainable code, and products people can actually use.
+                Ship working software. Keep interfaces readable. Don&apos;t overbuild.
               </div>
             </div>
             <div className="rounded-2xl bg-slate-50 p-4">
-              <div className="text-sm text-slate-500">Current portfolio</div>
+              <div className="text-sm text-slate-500">Recent work</div>
               <div className="mt-2 text-sm leading-6 text-slate-700">
-                Business systems, interactive websites, and practical full-stack builds from my GitHub work.
+                Storefronts, school tools, POS systems, and side projects — all live and linked below.
               </div>
             </div>
           </div>

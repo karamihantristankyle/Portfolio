@@ -91,7 +91,7 @@ const Navbar = () => {
               Tristan
             </div>
             <div className="text-sm text-slate-500">
-              Full Stack Developer & Game Developer
+              Developer
             </div>
           </motion.button>
 

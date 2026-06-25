@@ -14,10 +14,10 @@ const About = () => {
             About Me
           </div>
           <p className="text-lg leading-8 text-slate-600">
-            I&apos;m a developer who likes building products that feel clear, fast, and useful. Most of my work sits in full-stack development, where I handle UI, logic, and product flow end to end.
+            I build things for a living — mostly web apps and tools for businesses, schools, and side projects. I handle the frontend, backend, and whatever else the job needs.
           </p>
           <p className="mt-5 text-lg leading-8 text-slate-600">
-            I&apos;m also drawn to game development because it sharpens how I think about interaction, pacing, and feedback. Whether it&apos;s a business system or an interactive concept, I care about making the experience feel deliberate instead of noisy.
+            I don&apos;t stick to one lane. Some projects are serious systems. Others are experiments. What they share is that they work, they&apos;re easy to use, and they ship.
           </p>
         </motion.div>
       </div>
